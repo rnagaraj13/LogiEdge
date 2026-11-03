@@ -1,0 +1,23 @@
+flowchart LR
+  subgraph TRUCK["Refrigerated truck — offline-capable edge node"]
+    T["Temperature sensor<br/>1 Hz"]
+    V["3-axis vibration sensor<br/>500 Hz raw → 0.5 Hz RMS"]
+    D["Door contact<br/>OPEN/CLOSE events"]
+    B["Local Mosquitto broker"]
+    P["Filter + 30 s windows<br/>10 s step + clean stats"]
+    M["Local TFLite model<br/>Normal / Warning / Critical"]
+    A["Local alert output<br/>durable outbox + event log"]
+    U["Sync agent<br/>retry, deduplicate, TLS"]
+    T -->|"sensor/temperature"| B
+    V -->|"sensor/vibration_rms"| B
+    D -->|"sensor/door_event"| B
+    B --> P --> M
+    M -->|"inference result"| B
+    M -->|"Critical / Warning"| A
+    A --> U
+    B -. "connectivity-independent" .-> A
+  end
+  U -->|"cellular; queued while offline"| O["Operations centre<br/>MQTT/API ingress"]
+  O --> C["Fleet event store + dashboard"]
+  O --> R["Acknowledgements / signed model updates"]
+  R -->|"verified OTA when connected"| U

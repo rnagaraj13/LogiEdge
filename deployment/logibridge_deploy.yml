@@ -1,0 +1,77 @@
+---
+- name: Deploy LogiEdge edge inference stack
+  hosts: edge_nodes
+  become: true
+  gather_facts: false
+  vars:
+    logibridge_dir: /opt/logibridge
+    inference_container: logibridge-inference
+    inference_image: localhost:5000/logibridge-inference:latest
+    model_source: ./training/models/m2_int8.tflite
+    reference_source: ./monitoring/reference_dist.json
+    truck_id: truck-001
+  tasks:
+    - name: Create /opt/logibridge directory if absent
+      ansible.builtin.file:
+        path: "{{ logibridge_dir }}"
+        state: directory
+        mode: "0750"
+
+    - name: Copy new model file
+      ansible.builtin.copy:
+        src: "{{ model_source }}"
+        dest: "{{ logibridge_dir }}/model.tflite"
+        mode: "0640"
+      register: model_copy
+
+    - name: Copy updated confidence reference
+      ansible.builtin.copy:
+        src: "{{ reference_source }}"
+        dest: "{{ logibridge_dir }}/reference_dist.json"
+        mode: "0640"
+      register: reference_copy
+
+    - name: Stop the running inference container when artifacts changed
+      ansible.builtin.command:
+        argv:
+          - docker
+          - stop
+          - "{{ inference_container }}"
+      register: stop_result
+      when: model_copy.changed or reference_copy.changed
+      changed_when: stop_result.rc == 0
+      failed_when: stop_result.rc not in [0, 1]
+
+    - name: Pull updated inference image from the local registry
+      community.docker.docker_image:
+        name: "{{ inference_image }}"
+        source: pull
+        force_source: false
+
+    - name: Start inference container with required environment
+      community.docker.docker_container:
+        name: "{{ inference_container }}"
+        image: "{{ inference_image }}"
+        state: started
+        # Local demo: use already-built image (no Docker Hub / registry pull).
+        # For registry-based OTA, set pull: true and point inference_image at the registry.
+        pull: false
+        restart_policy: unless-stopped
+        network_mode: host
+        env:
+          TRUCK_ID: "{{ truck_id }}"
+          MQTT_HOST: "127.0.0.1"
+          MQTT_PORT: "1883"
+          MODEL_PATH: "{{ logibridge_dir }}/model.tflite"
+          STATS_PATH: "{{ logibridge_dir }}/training_stats.npy"
+          ALERT_LOG_PATH: "{{ logibridge_dir }}/alerts.jsonl"
+        volumes:
+          - "{{ logibridge_dir }}:{{ logibridge_dir }}:ro"
+
+    - name: Wait 15 seconds and verify inference container is running
+      ansible.builtin.command:
+        argv:
+          - sh
+          - -c
+          - "sleep 15 && test \"$(docker inspect --format={{ '{{' }}.State.Running{{ '}}' }} {{ inference_container }})\" = true"
+      changed_when: false

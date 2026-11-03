@@ -1,0 +1,7 @@
+{
+  "status": "not_measured",
+  "instructions": "Run python monitoring/build_reference.py after training; do not use example values as a reference.",
+  "sample_count": 0,
+  "bin_edges": [0.0, 0.25, 0.5, 0.75, 1.0],
+  "reference_proportions": []
+}

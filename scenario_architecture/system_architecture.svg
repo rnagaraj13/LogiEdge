@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="520" viewBox="0 0 1180 520">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155"/>
+    </marker>
+    <style>
+      .box { fill:#eff6ff; stroke:#2563eb; stroke-width:2; rx:12; }
+      .cloud { fill:#f0fdf4; stroke:#16a34a; stroke-width:2; rx:12; }
+      .local { fill:#f8fafc; stroke:#64748b; stroke-width:2; rx:18; }
+      .title { font: bold 16px sans-serif; fill:#0f172a; }
+      .sub { font: 13px sans-serif; fill:#334155; }
+      .link { stroke:#334155; stroke-width:2.5; fill:none; marker-end:url(#arrow); }
+      .dash { stroke-dasharray:7 6; }
+    </style>
+  </defs>
+  <rect x="20" y="28" width="810" height="455" class="local"/>
+  <text x="42" y="58" class="title">Refrigerated truck — local, offline-capable edge node</text>
+  <rect x="55" y="100" width="195" height="72" class="box"/>
+  <text x="72" y="128" class="title">Sensors</text>
+  <text x="72" y="150" class="sub">Temperature 1 Hz · Vibration 500 Hz raw / RMS</text>
+  <text x="72" y="166" class="sub">Door OPEN/CLOSE events</text>
+  <rect x="305" y="100" width="180" height="72" class="box"/>
+  <text x="330" y="130" class="title">Local Mosquitto</text>
+  <text x="330" y="151" class="sub">Sensor topic tree</text>
+  <rect x="540" y="100" width="230" height="72" class="box"/>
+  <text x="558" y="128" class="title">Preprocessing + fusion</text>
+  <text x="558" y="150" class="sub">5-sample filter · 30 s / 10 s windows</text>
+  <rect x="540" y="230" width="230" height="72" class="box"/>
+  <text x="562" y="258" class="title">Local TFLite inference</text>
+  <text x="562" y="280" class="sub">Normal · Warning · Critical</text>
+  <rect x="305" y="230" width="180" height="72" class="box"/>
+  <text x="324" y="258" class="title">Local alert output</text>
+  <text x="324" y="280" class="sub">Durable log + outbox</text>
+  <rect x="305" y="360" width="180" height="72" class="box"/>
+  <text x="322" y="388" class="title">Sync agent</text>
+  <text x="322" y="410" class="sub">Queue offline · retry TLS</text>
+  <path d="M250 136 L305 136" class="link"/>
+  <path d="M485 136 L540 136" class="link"/>
+  <path d="M655 172 L655 230" class="link"/>
+  <path d="M540 266 L485 266" class="link"/>
+  <path d="M395 302 L395 360" class="link"/>
+  <rect x="890" y="130" width="245" height="110" class="cloud"/>
+  <text x="915" y="165" class="title">Operations centre</text>
+  <text x="915" y="190" class="sub">MQTT/API ingress · event store</text>
+  <text x="915" y="212" class="sub">Fleet dashboard · alert workflow</text>
+  <path d="M485 396 C670 465 795 375 890 218" class="link"/>
+  <text x="620" y="420" class="sub">Cellular uplink only for queued sync / OTA</text>
+  <text x="55" y="462" class="sub">Local alarms continue during 35–90 minute cellular gaps.</text>
+</svg>

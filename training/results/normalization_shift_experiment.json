@@ -1,0 +1,6 @@
+{
+  "correct_stats_accuracy": 1.0,
+  "mean_shifted_by_3_sigma_accuracy": 0.9473684210526315,
+  "accuracy_change_percentage_points": -5.263157894736848,
+  "interpretation": "Measured on the same held-out split; not a live-data normalization update."
+}

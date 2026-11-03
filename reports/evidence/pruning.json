@@ -1,0 +1,12 @@
+{
+  "schedule": "tensorflow_model_optimization PolynomialDecay",
+  "structured_unit_sparsity_target": 0.35,
+  "final_hidden_units": [
+    21,
+    11
+  ],
+  "pruning_steps": 190,
+  "calibration_samples": 378,
+  "validation_samples_reserved": 76,
+  "note": "The reduced dense dimensions are physically compacted before PTQ."
+}

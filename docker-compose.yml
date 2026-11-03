@@ -1,0 +1,55 @@
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2
+    ports:
+      - "127.0.0.1:1883:1883"
+    volumes:
+      - ./deployment/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+      - mosquitto_data:/mosquitto/data
+      - mosquitto_log:/mosquitto/log
+    restart: unless-stopped
+
+  inference:
+    image: logibridge-inference:latest
+    build:
+      context: ./inference
+      dockerfile: Dockerfile
+    environment:
+      TRUCK_ID: ${TRUCK_ID:-truck-001}
+      MQTT_HOST: mosquitto
+      MQTT_PORT: "1883"
+      MODEL_PATH: ${MODEL_PATH:-/app/model.tflite}
+      STATS_PATH: /app/training_stats.npy
+      ALERT_LOG_PATH: /var/lib/logibridge/alerts.jsonl
+    volumes:
+      - ./training/models:/models:ro
+      - inference_logs:/var/lib/logibridge
+    depends_on:
+      - mosquitto
+    restart: unless-stopped
+
+  sync-agent:
+    image: logibridge-sync-agent:latest
+    build:
+      context: ./deployment
+      dockerfile: sync-agent.Dockerfile
+    volumes:
+      - inference_logs:/var/lib/logibridge
+    environment:
+      MQTT_HOST: mosquitto
+      MQTT_PORT: "1883"
+      TRUCK_ID: ${TRUCK_ID:-truck-001}
+      OUTBOX_PATH: /var/lib/logibridge/outbox.sqlite3
+      OPS_MQTT_HOST: ${OPS_MQTT_HOST:-}
+      OPS_MQTT_PORT: ${OPS_MQTT_PORT:-8883}
+      OPS_MQTT_TLS: "true"
+      OPS_MQTT_USERNAME: ${OPS_MQTT_USERNAME:-}
+      OPS_MQTT_PASSWORD: ${OPS_MQTT_PASSWORD:-}
+    depends_on:
+      - mosquitto
+    restart: unless-stopped
+
+volumes:
+  mosquitto_data:
+  mosquitto_log:
+  inference_logs:
