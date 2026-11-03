@@ -2,8 +2,8 @@
 
 > Measured draft prepared from a local end-to-end run on macOS (Apple Silicon) with Python 3.11, TensorFlow 2.15.1, Docker Compose, and Ansible. Replace GROUPNO, repository URL, and demo URL before LMS export. This simulation does not certify pharmaceutical safety.
 
-**Group:** FILL_BEFORE_SUBMIT — group number and member names  
-**Repository:** FILL_BEFORE_SUBMIT — private GitHub URL (instructor added as collaborator)  
+**Group:** Group 16 — R. Ranjith N. (2025ae05379@wilp.bits-pilani.ac.in), P. Pricilla W. (2025ae05321@wilp.bits-pilani.ac.in), G. Guna Anban G. (2025ae05318@wilp.bits-pilani.ac.in)  
+**Repository:** https://github.com/rnagaraj13/LogiEdge (switch to private before deadline; add instructor + all members as collaborators)  
 **Demo video:** FILL_BEFORE_SUBMIT — tested unlisted/anyone-with-link URL  
 
 ## 1 — FreightBridge Deployment Context (target 400–500 words)
