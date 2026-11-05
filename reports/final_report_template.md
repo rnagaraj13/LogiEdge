@@ -16,7 +16,7 @@ The edge node buffers timestamped events, features, model versions and decisions
 
 The Constraint Triangle compares performance/latency, power/thermal envelope and cost. The selected pilot candidate is Raspberry Pi 5 (8 GB) plus AI HAT+ at the specified 7.5 W and ₹15,000 per truck. This is below the 10 W AI budget and costs ₹12.75 lakh for 85 trucks or ₹39.75 lakh for 265. Jetson Orin Nano Super is stated at 15 W and ₹45,000, so it exceeds power and costs ₹38.25 lakh pilot / ₹1.1925 crore at scale. STM32H7 costs ₹3,500 and 0.4 W but is not evidenced to support the selected model/runtime, memory, OTA and SLA. Pi/HAT is conditional on measured sustained power, thermal behavior, sensor-to-alert latency, and runtime compatibility; 13 TOPS is not a timing result.
 
-The supplied arithmetic intensity is `45 MFLOPs / 18 MB = 2.5 FLOP/byte`. The ridge point is `16 GFLOP/s / 12 GB/s = 1.33 FLOP/byte`, so the ideal Roofline classifies it as compute-bound. Peak lower bounds are 2.81 ms compute and 1.50 ms memory per inference; they are not measured latencies. The architecture is shown in [Figure 1](../scenario_architecture/system_architecture.svg).
+The supplied arithmetic intensity is `45 MFLOPs / 18 MB = 2.5 FLOP/byte`. The ridge point is `16 GFLOP/s / 12 GB/s = 1.33 FLOP/byte`, so the ideal Roofline classifies it as compute-bound. Peak lower bounds are 2.81 ms compute and 1.50 ms memory per inference; they are not measured latencies. The architecture is shown in [Figure 1](../scenario_architecture/system_architecture.png).
 
 **[MEASURE: target hardware, end-to-end run count, p95/worst latency, power, and offline test evidence; explain if the 90-second SLA passed.]**
 

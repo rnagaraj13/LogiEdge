@@ -10,9 +10,7 @@ logibridge/
     │   ├── vibration_rms     JSON {timestamp, value, unit, anomaly}
     │   └── door_event        JSON {timestamp, event: OPEN|CLOSE}
     ├── inference             JSON {class_id, class_name, confidence, probabilities, ...}
-    ├── alerts                JSON {severity, class, timestamp, ...}
-    ├── health                JSON {model_version, queue_depth, uptime}
-    └── ota/ack               JSON {model_version, status, checksum}
+    └── alerts                JSON {severity, class, timestamp, ...}
 ```
 
 | Topic | QoS | Retain | Rationale |
@@ -22,8 +20,8 @@ logibridge/
 | `sensor/door_event` | 1 | No | Discrete state transition should be delivered at least once; consumers deduplicate by event ID. |
 | `inference` | 1 | No | Useful for traceability and PSI; local broker and disk journal retain operational evidence. |
 | `alerts` | 1 | No | Safety event must be delivered at least once; durable journal and IDs make retry safe. |
-| `health` | 1 | Yes | Latest health/version state is useful to a reconnecting operations client. |
-| `ota/ack` | 1 | No | Model activation and rollback acknowledgements must not be silently lost. |
+
+Planned but not implemented in this submission: a retained `health` topic (model version, queue depth, uptime) for reconnecting operations clients, and a QoS 1 `ota/ack` topic for model activation and rollback acknowledgements. In the current build, OTA success is verified by the Ansible play's final running-container check.
 
 Temperature and vibration are filtered independently with a five-sample moving average. Each aligned 30-second window advances every 10 seconds. Temperature produces mean, standard deviation, and rate-of-change; vibration produces RMS, peak, and Pearson kurtosis. The independently computed values are concatenated in a fixed six-feature schema. This **feature-level fusion** preserves cross-sensor relations for the MLP while sending only six values per inference window. Raw data-level fusion would require clock alignment and move much more 500 Hz data through the model; decision-level fusion would require separate models and make temperature/vibration interactions harder to learn. Door transitions are separately timestamped and logged; they remain outside the required six-feature vector, so the model does not infer a door-dependent class unless the feature contract is explicitly expanded and retrained.
 

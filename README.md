@@ -64,6 +64,9 @@ Follow the demo checklist for live evidence and stop the stack with
    docker compose up -d mosquitto
    ```
 
+   `requirements.txt` installs `tensorflow-cpu` on Linux/Pi and `tensorflow` on macOS
+   (Apple Silicon has no `tensorflow-cpu` wheel).
+
 2. Verify the pure preprocessing logic:
 
    ```bash
@@ -113,7 +116,7 @@ Follow the demo checklist for live evidence and stop the stack with
    To inject anomalies, rerun with `--anomaly combined`. The PSI monitor subscribes to inference confidence events:
 
    ```bash
-   python monitoring/drift_monitor.py --truck-id truck-001
+   python -m monitoring.drift_monitor --truck-id truck-001
    ```
 
    Demonstrate PSI crossing 0.25 during the injected run and returning below 0.10 after clean data resumes. If the measured model does not meet these thresholds, document that result and investigate; do not fabricate a pass.
@@ -134,5 +137,11 @@ Follow the demo checklist for live evidence and stop the stack with
 - The 90-second requirement is an end-to-end detect-and-alert SLA, not a 90-second model-call budget. The project targets windowing plus inference and local alerting well below that SLA; measured end-to-end timing is required before claiming compliance.
 
 ## Known environment limits
+
+Run only one inference container per truck ID. The Compose service and the Ansible-deployed
+`logibridge-inference` container use the same MQTT client ID (`logibridge-inference-<truck_id>`);
+if both run, Mosquitto keeps disconnecting one for the other and no windows are classified.
+Stop the one you are not demonstrating (`docker stop logibridge-inference` or
+`docker compose stop inference`).
 
 The current authoring environment may not have TensorFlow, Docker Engine, Mosquitto, or Ansible installed. The repository includes reproducible commands and explicit runtime checks, but no model binary, benchmark measurements, live broker output, Ansible run, or demo video is fabricated. Generate those on a compatible Linux/edge environment.

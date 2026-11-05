@@ -18,7 +18,7 @@ The 7.5 W figure and 13 TOPS do not prove actual latency or Hailo compatibility.
 
 Arithmetic intensity is 45 MFLOPs/18 MB = 2.5 FLOP/byte. The Pi 5 ridge point from the supplied peak rates is 16 GFLOP/s ÷ 12 GB/s = 1.33 FLOP/byte. Since 2.5 exceeds 1.33, the workload is compute-bound in this ideal model. Peak-based lower bounds are 2.81 ms compute and 1.50 ms memory per inference; real runtime is different. INT8 kernels, smaller structured-pruned layers, and a compatible accelerator are candidates to reduce compute time, but must be benchmarked.
 
-Architecture figure: [system_architecture.svg](../scenario_architecture/system_architecture.svg). It shows all sensor connections, local broker, preprocessing, TFLite inference, local alert/outbox, cellular synchronisation and operations centre.
+Architecture figure: [system_architecture.png](../scenario_architecture/system_architecture.png). It shows all sensor connections, local broker, preprocessing, TFLite inference, local alert/outbox, cellular synchronisation and operations centre.
 
 ## Student measurement / reflection to complete
 

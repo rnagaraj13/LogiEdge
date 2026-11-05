@@ -3,7 +3,7 @@
 Record your own live run. Keep the student's terminal, commands, timestamps and actual outputs visible; do not use another person's recording or present fabricated results.
 
 1. **0:00–1:00 — Context:** identify the 85-truck pilot, operational classes, offline requirement, and chosen hardware.
-2. **1:00–3:00 — Architecture:** show `scenario_architecture/system_architecture.svg` and explain local alarm vs eventual cloud sync.
+2. **1:00–3:00 — Architecture:** show `scenario_architecture/system_architecture.png` and explain local alarm vs eventual cloud sync.
 3. **3:00–5:00 — MQTT/simulator:** show Mosquitto running; run `simulator.py` with `none`, then `combined`; show temperature, vibration RMS and door event topics.
 4. **5:00–7:00 — Preprocessing/data:** show feature order, 30 s/10 s windows, saved clean stats, dataset class counts and the documented drift-label conflict.
 5. **7:00–9:00 — Training:** show validation accuracy, confusion matrix and Class 2 recall from your own `training/results/training_metrics.json`.

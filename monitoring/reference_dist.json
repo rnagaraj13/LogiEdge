@@ -1,0 +1,22 @@
+{
+  "status": "measured",
+  "model": "m2_int8.tflite",
+  "model_sha256": "8799e98c067e254608ff0d72ffeca218b9d12da17fe3f48ee8928f2cfe93e4ad",
+  "sample_count": 300,
+  "bin_edges": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "reference_proportions": [
+    0.0,
+    0.8566666666666667,
+    0.0,
+    0.14333333333333334
+  ],
+  "confidence_mean": 0.4272005208333333,
+  "confidence_std": 0.2326640453901437,
+  "simulator": "normal, seed 179; independent long clean stream"
+}

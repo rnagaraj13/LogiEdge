@@ -5,7 +5,7 @@ This matrix links each assignment requirement to the corresponding repository ar
 | Assignment section | Evidence in repository |
 |---|---|
 | A1 Constraint analysis (350–500 words) | `scenario_architecture/constraint_analysis.md` |
-| A2 System architecture diagram | `scenario_architecture/system_architecture.svg` (+ editable `.mmd`) |
+| A2 System architecture diagram | `scenario_architecture/system_architecture.png` (+ `.svg` source and editable `.mmd`) |
 | B1 Constraint Triangle and hardware choice | `hardware/hardware_justification.md` |
 | B2 Arithmetic Intensity + Roofline classification | `hardware/hardware_justification.md` |
 | C1 Simulator with `--anomaly {none,temp_drift,vibration,combined}` | `data_pipeline/simulator.py` |

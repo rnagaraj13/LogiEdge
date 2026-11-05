@@ -15,10 +15,11 @@
   </defs>
   <rect x="20" y="28" width="810" height="455" class="local"/>
   <text x="42" y="58" class="title">Refrigerated truck — local, offline-capable edge node</text>
-  <rect x="55" y="100" width="195" height="72" class="box"/>
-  <text x="72" y="128" class="title">Sensors</text>
-  <text x="72" y="150" class="sub">Temperature 1 Hz · Vibration 500 Hz raw / RMS</text>
-  <text x="72" y="166" class="sub">Door OPEN/CLOSE events</text>
+  <rect x="40" y="92" width="215" height="96" class="box"/>
+  <text x="56" y="118" class="title">Sensors</text>
+  <text x="56" y="140" class="sub">Temperature 1 Hz</text>
+  <text x="56" y="158" class="sub">Vibration 500 Hz raw / RMS</text>
+  <text x="56" y="176" class="sub">Door OPEN/CLOSE events</text>
   <rect x="305" y="100" width="180" height="72" class="box"/>
   <text x="330" y="130" class="title">Local Mosquitto</text>
   <text x="330" y="151" class="sub">Sensor topic tree</text>
@@ -34,7 +35,7 @@
   <rect x="305" y="360" width="180" height="72" class="box"/>
   <text x="322" y="388" class="title">Sync agent</text>
   <text x="322" y="410" class="sub">Queue offline · retry TLS</text>
-  <path d="M250 136 L305 136" class="link"/>
+  <path d="M255 136 L305 136" class="link"/>
   <path d="M485 136 L540 136" class="link"/>
   <path d="M655 172 L655 230" class="link"/>
   <path d="M540 266 L485 266" class="link"/>
@@ -44,6 +45,6 @@
   <text x="915" y="190" class="sub">MQTT/API ingress · event store</text>
   <text x="915" y="212" class="sub">Fleet dashboard · alert workflow</text>
   <path d="M485 396 C670 465 795 375 890 218" class="link"/>
-  <text x="620" y="420" class="sub">Cellular uplink only for queued sync / OTA</text>
+  <text x="510" y="462" class="sub">Cellular uplink only for queued sync / OTA</text>
   <text x="55" y="462" class="sub">Local alarms continue during 35–90 minute cellular gaps.</text>
 </svg>

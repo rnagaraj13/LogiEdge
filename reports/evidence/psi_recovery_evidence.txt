@@ -1,0 +1,45 @@
+# Live PSI run, 2026-11-05, macOS Apple Silicon, Docker Compose stack, model m2_int8.tflite
+# Reference: monitoring/reference_dist.json, n=300, proportions [0.00, 0.857, 0.00, 0.143]
+# Simulator: --duration-minutes 40 --anomaly none --inject-after-seconds 60 --anomaly-after combined
+#            --recover-after-seconds 1080 --recovery-mode none
+# (clean 0-60 s, combined 60-1140 s, clean 1140-2400 s; one PSI check per 60 s on the latest 100 inferences)
+$ python -m monitoring.drift_monitor --truck-id truck-001
+Monitoring confidence drift for truck-001.
+[LOGIBRIDGE PSI] PSI=13.367 n=100 bins=[0.0, 0.0, 0.0, 1.0]
+[LOGIBRIDGE DRIFT ALERT] PSI=13.367
+[LOGIBRIDGE PSI] PSI=5.404 n=100 bins=[0.0, 0.01, 0.0, 0.99]
+[LOGIBRIDGE DRIFT ALERT] PSI=5.404
+[LOGIBRIDGE PSI] PSI=4.056 n=100 bins=[0.0, 0.04, 0.0, 0.96]
+[LOGIBRIDGE DRIFT ALERT] PSI=4.056
+[LOGIBRIDGE PSI] PSI=3.144 n=100 bins=[0.0, 0.09, 0.0, 0.91]
+[LOGIBRIDGE DRIFT ALERT] PSI=3.144
+[LOGIBRIDGE PSI] PSI=2.785 n=100 bins=[0.0, 0.12, 0.0, 0.88]
+[LOGIBRIDGE DRIFT ALERT] PSI=2.785
+[LOGIBRIDGE PSI] PSI=2.316 n=100 bins=[0.0, 0.17, 0.0, 0.83]
+[LOGIBRIDGE DRIFT ALERT] PSI=2.316
+[LOGIBRIDGE PSI] PSI=1.944 n=100 bins=[0.0, 0.22, 0.0, 0.78]
+[LOGIBRIDGE DRIFT ALERT] PSI=1.944
+[LOGIBRIDGE PSI] PSI=1.576 n=100 bins=[0.0, 0.28, 0.0, 0.72]
+[LOGIBRIDGE DRIFT ALERT] PSI=1.576
+[LOGIBRIDGE PSI] PSI=1.415 n=100 bins=[0.0, 0.31, 0.0, 0.69]
+[LOGIBRIDGE DRIFT ALERT] PSI=1.415
+[LOGIBRIDGE PSI] PSI=1.129 n=100 bins=[0.0, 0.37, 0.0, 0.63]
+[LOGIBRIDGE DRIFT ALERT] PSI=1.129
+[LOGIBRIDGE PSI] PSI=0.883 n=100 bins=[0.0, 0.43, 0.0, 0.57]
+[LOGIBRIDGE DRIFT ALERT] PSI=0.883
+[LOGIBRIDGE PSI] PSI=0.704 n=100 bins=[0.0, 0.48, 0.0, 0.52]
+[LOGIBRIDGE DRIFT ALERT] PSI=0.704
+[LOGIBRIDGE PSI] PSI=0.545 n=100 bins=[0.0, 0.53, 0.0, 0.47]
+[LOGIBRIDGE DRIFT ALERT] PSI=0.545
+[LOGIBRIDGE PSI] PSI=0.405 n=100 bins=[0.0, 0.58, 0.0, 0.42]
+[LOGIBRIDGE DRIFT ALERT] PSI=0.405
+[LOGIBRIDGE PSI] PSI=0.285 n=100 bins=[0.0, 0.63, 0.0, 0.37]
+[LOGIBRIDGE DRIFT ALERT] PSI=0.285
+[LOGIBRIDGE PSI] PSI=0.165 n=100 bins=[0.0, 0.69, 0.0, 0.31]
+[LOGIBRIDGE PSI] PSI=0.100 n=100 bins=[0.0, 0.73, 0.0, 0.27]
+[LOGIBRIDGE PSI] PSI=0.031 n=100 bins=[0.0, 0.79, 0.0, 0.21]
+[LOGIBRIDGE DRIFT RECOVERED] PSI=0.031
+[LOGIBRIDGE PSI] PSI=0.010 n=100 bins=[0.0, 0.82, 0.0, 0.18]
+[LOGIBRIDGE PSI] PSI=0.002 n=100 bins=[0.0, 0.84, 0.0, 0.16]
+[LOGIBRIDGE PSI] PSI=0.002 n=100 bins=[0.0, 0.84, 0.0, 0.16]
+[LOGIBRIDGE PSI] PSI=0.000 n=100 bins=[0.0, 0.85, 0.0, 0.15]

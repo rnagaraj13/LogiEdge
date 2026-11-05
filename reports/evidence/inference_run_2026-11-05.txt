@@ -1,0 +1,160 @@
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | Subscribed to logibridge/trucks/truck-001/sensor/+
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL CRITICAL ALERT] class=2 confidence=1.000
+inference-1  | [LOCAL WARNING ALERT] class=1 confidence=1.000
+inference-1  | [LOCAL WARNING ALERT] class=1 confidence=1.000
