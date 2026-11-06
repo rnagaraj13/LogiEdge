@@ -8,3 +8,4 @@ run_logs/
 data_pipeline/generated/
 demo/*.mp4
 demo/demo_script.md
+demo/demo_runbook.md

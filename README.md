@@ -121,6 +121,13 @@ Follow the demo checklist for live evidence and stop the stack with
 
    Demonstrate PSI crossing 0.25 during the injected run and returning below 0.10 after clean data resumes. If the measured model does not meet these thresholds, document that result and investigate; do not fabricate a pass.
 
+   The PSI window needs 100 inferences (about 17 minutes at real-time speed). For a shorter demonstration, replay faster with `--speed`; sensor timestamps, windows and PSI settings are unchanged:
+
+   ```bash
+   python data_pipeline/simulator.py --truck-id truck-001 --duration-minutes 30 --speed 3 \
+     --anomaly combined --inject-after-seconds 510 --anomaly-after none
+   ```
+
 7. Prepare the deployment and report evidence:
 
    - Follow `deployment/README.md` for the two-run Ansible idempotency test.
