@@ -138,6 +138,13 @@ def on_message(_client, _userdata, message):
         print(f"[INVALID SENSOR MESSAGE] {message.topic}: {exc}", flush=True)
         return
     timestamp = float(data["timestamp"])
+    if next_window_end is not None and timestamp < next_window_end - 2 * WINDOW_SECONDS:
+        # Sensor clock restarted (new simulator run or gateway reboot): start fresh windows.
+        with lock:
+            temperatures.clear()
+            vibrations.clear()
+            next_window_end = None
+        print(f"[SENSOR CLOCK RESET] timestamp={timestamp}; window buffers cleared", flush=True)
     if message.topic.endswith("/temperature"):
         temperatures.append((timestamp, float(data["value"])))
     elif message.topic.endswith("/vibration_rms"):

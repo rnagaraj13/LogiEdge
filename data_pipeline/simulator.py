@@ -96,7 +96,9 @@ def generate_stream(
             )
 
 
-def publish_local_mqtt(messages, host: str, port: int, keepalive: int = 30) -> None:
+def publish_local_mqtt(messages, host: str, port: int, keepalive: int = 30, speed: float = 1.0) -> None:
+    if speed <= 0:
+        raise ValueError("Replay speed must be positive.")
     try:
         import paho.mqtt.client as mqtt
     except ImportError as exc:
@@ -124,7 +126,7 @@ def publish_local_mqtt(messages, host: str, port: int, keepalive: int = 30) -> N
         for topic, payload in messages:
             timestamp = float(payload["timestamp"])
             if previous_timestamp is not None and timestamp > previous_timestamp:
-                time.sleep(timestamp - previous_timestamp)
+                time.sleep((timestamp - previous_timestamp) / speed)
             previous_timestamp = timestamp
             qos = 1 if topic.endswith("/door_event") else 0
             info = client.publish(topic, json.dumps(payload), qos=qos)
@@ -144,6 +146,10 @@ def main() -> None:
     parser.add_argument("--mqtt-host", default="localhost")
     parser.add_argument("--mqtt-port", type=int, default=1883)
     parser.add_argument("--seed", type=int, default=631)
+    parser.add_argument(
+        "--speed", type=float, default=1.0,
+        help="Replay speed factor; sensor timestamps are unchanged (e.g. 3 = three times real time).",
+    )
     parser.add_argument(
         "--inject-after-seconds", type=int,
         help="Switch from --anomaly to --anomaly-after at this simulated second.",
@@ -165,7 +171,7 @@ def main() -> None:
         recover_after_seconds=args.recover_after_seconds,
         recovery_mode=args.recovery_mode,
     )
-    publish_local_mqtt(messages, args.mqtt_host, args.mqtt_port)
+    publish_local_mqtt(messages, args.mqtt_host, args.mqtt_port, speed=args.speed)
     print(
         f"Published {args.anomaly} stream for {args.truck_id} "
         f"({args.duration_minutes:g} minutes) to {args.mqtt_host}:{args.mqtt_port}."
