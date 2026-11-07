@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import argparse
 import csv
 import json
 import os
@@ -72,10 +73,27 @@ def load_validation():
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--plot-only", action="store_true",
+        help="Redraw pareto_chart.png from the existing benchmark_results.csv without re-measuring.",
+    )
+    args = parser.parse_args()
+    results_dir = ROOT / "optimisation/results"
+    if args.plot_only:
+        csv_path = results_dir / "benchmark_results.csv"
+        if not csv_path.is_file():
+            raise FileNotFoundError(f"No measured results to plot: {csv_path}")
+        rows = [
+            {key: (value if key == "variant" else float(value)) for key, value in row.items()}
+            for row in csv.DictReader(csv_path.open(encoding="utf-8"))
+        ]
+        plot_pareto(rows, results_dir / "pareto_chart.png")
+        print(f"Redrew {results_dir / 'pareto_chart.png'} from {csv_path}.")
+        return
     if not (ROOT / "data_pipeline/generated/windows.csv").is_file():
         raise FileNotFoundError("Run data_pipeline/generate_dataset.py first.")
     x_val, y_val = load_validation()
-    results_dir = ROOT / "optimisation/results"
     results_dir.mkdir(parents=True, exist_ok=True)
     tdp_watts = float(os.getenv("LOGIBRIDGE_LAPTOP_TDP_WATTS", "25"))
     warmups, timed_runs = 10, 200
@@ -174,30 +192,43 @@ def dominates(a, b):
 
 def plot_pareto(rows, path):
     pareto = [row for row in rows if not any(dominates(other, row) for other in rows if other is not row)]
-    fig, axis = plt.subplots(figsize=(8, 5))
-    for row in rows:
-        axis.scatter(row["model_size_kb"], row["mean_latency_ms_200_runs"], s=70)
+    short = {"M1_FP32": "M1 FP32", "M2_PTQ_INT8": "M2 PTQ INT8", "M3_PRUNED_PTQ_INT8": "M3 Pruned + PTQ INT8"}
+    # Tags point in different directions so near-identical points (M2/M3) never share label space.
+    tag_offsets = [(-70, -40), (45, 40), (45, -45)]
+    fig, axis = plt.subplots(figsize=(9, 5.5))
+    for index, row in enumerate(rows):
+        name = short.get(row["variant"], row["variant"])
+        size, latency = row["model_size_kb"], row["mean_latency_ms_200_runs"]
+        axis.scatter(
+            size, latency, s=80, zorder=3,
+            label=(f"{name}: {size:.2f} KB, {latency:.4f} ms, "
+                   f"Acc {row['validation_accuracy_percent']:.1f}%, C2 recall {row['critical_recall_percent']:.1f}%"),
+        )
         axis.annotate(
-            f"{row['variant']}\nAcc {row['validation_accuracy_percent']:.1f}%, "
-            f"C2 recall {row['critical_recall_percent']:.1f}%",
-            (row["model_size_kb"], row["mean_latency_ms_200_runs"]),
-            xytext=(6, 6), textcoords="offset points", fontsize=8,
+            name.split()[0], (size, latency),
+            xytext=tag_offsets[index % len(tag_offsets)], textcoords="offset points",
+            fontsize=10, fontweight="bold", ha="center",
+            arrowprops={"arrowstyle": "->", "color": "0.35", "lw": 1},
         )
     ordered = sorted(pareto, key=lambda row: row["model_size_kb"])
     if len(ordered) > 1:
         axis.plot(
             [row["model_size_kb"] for row in ordered],
             [row["mean_latency_ms_200_runs"] for row in ordered],
-            linestyle="--", color="gray", label="Non-dominated variants",
+            linestyle="--", color="gray", zorder=2, label="Pareto frontier (non-dominated)",
         )
+    latencies = [row["mean_latency_ms_200_runs"] for row in rows]
+    sizes = [row["model_size_kb"] for row in rows]
+    axis.set_yscale("log")
+    axis.set_ylim(min(latencies) / 4, max(latencies) * 4)
+    axis.set_xlim(0, max(sizes) * 1.25)
     axis.set_xlabel("Measured model size (KB)")
-    axis.set_ylabel("Mean inference latency (ms; 200 timed runs)")
-    axis.set_title("LogiEdge validation-set latency/size Pareto view")
-    axis.grid(True, alpha=0.3)
-    if len(ordered) > 1:
-        axis.legend()
+    axis.set_ylabel("Mean inference latency (ms, log scale; 200 timed runs)")
+    axis.set_title("LogiEdge latency vs size Pareto view (validation set)")
+    axis.grid(True, which="both", alpha=0.3)
+    axis.legend(loc="upper center", bbox_to_anchor=(0.5, -0.14), fontsize=8, frameon=False)
     fig.tight_layout()
-    fig.savefig(path, dpi=180)
+    fig.savefig(path, dpi=180, bbox_inches="tight")
     plt.close(fig)
 
 

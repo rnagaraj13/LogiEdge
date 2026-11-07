@@ -1,0 +1,47 @@
+# Live PSI mid-run injection, 2026-11-07, macOS Apple Silicon, Docker Compose stack, model m2_int8.tflite (real-time sensor rates)
+# Reference: monitoring/reference_dist.json, n=300, proportions [0.00, 0.857, 0.00, 0.143]
+# Simulator: --duration-minutes 40 --anomaly none --inject-after-seconds 1080 --anomaly-after combined --recover-after-seconds 300 --recovery-mode none
+# Phases (sensor time): clean 0-18 min, combined 18-23 min, clean 23-40 min. Injection ~12:17:19, clean restored ~12:22:20 (wall clock).
+# Wall-clock timestamps prefixed by the logging wrapper; drift monitor output is unmodified.
+$ python -m monitoring.drift_monitor --truck-id truck-001
+11:59:11 Monitoring confidence drift for truck-001.
+11:59:14 SIMULATOR START (clean 18 min, combined 18-23 min, clean to 40 min)
+12:16:19 [LOGIBRIDGE PSI] PSI=0.010 n=100 bins=[0.0, 0.89, 0.0, 0.11]
+12:17:20 [LOGIBRIDGE PSI] PSI=0.000 n=100 bins=[0.0, 0.86, 0.0, 0.14]
+12:18:20 [LOGIBRIDGE PSI] PSI=0.016 n=100 bins=[0.0, 0.81, 0.0, 0.19]
+12:19:20 [LOGIBRIDGE PSI] PSI=0.061 n=100 bins=[0.0, 0.76, 0.0, 0.24]
+12:20:21 [LOGIBRIDGE PSI] PSI=0.147 n=100 bins=[0.0, 0.7, 0.0, 0.3]
+12:21:21 [LOGIBRIDGE PSI] PSI=0.263 n=100 bins=[0.0, 0.64, 0.0, 0.36]
+12:21:21 [LOGIBRIDGE DRIFT ALERT] PSI=0.263
+12:22:21 [LOGIBRIDGE PSI] PSI=0.405 n=100 bins=[0.0, 0.58, 0.0, 0.42]
+12:22:21 [LOGIBRIDGE DRIFT ALERT] PSI=0.405
+12:23:22 [LOGIBRIDGE PSI] PSI=0.459 n=100 bins=[0.0, 0.56, 0.0, 0.44]
+12:23:22 [LOGIBRIDGE DRIFT ALERT] PSI=0.459
+12:24:22 [LOGIBRIDGE PSI] PSI=0.459 n=100 bins=[0.0, 0.56, 0.0, 0.44]
+12:24:22 [LOGIBRIDGE DRIFT ALERT] PSI=0.459
+12:25:22 [LOGIBRIDGE PSI] PSI=0.515 n=100 bins=[0.0, 0.54, 0.0, 0.46]
+12:25:22 [LOGIBRIDGE DRIFT ALERT] PSI=0.515
+12:26:23 [LOGIBRIDGE PSI] PSI=0.545 n=100 bins=[0.0, 0.53, 0.0, 0.47]
+12:26:23 [LOGIBRIDGE DRIFT ALERT] PSI=0.545
+12:27:23 [LOGIBRIDGE PSI] PSI=0.515 n=100 bins=[0.0, 0.54, 0.0, 0.46]
+12:27:23 [LOGIBRIDGE DRIFT ALERT] PSI=0.515
+12:28:23 [LOGIBRIDGE PSI] PSI=0.545 n=100 bins=[0.0, 0.53, 0.0, 0.47]
+12:28:23 [LOGIBRIDGE DRIFT ALERT] PSI=0.545
+12:29:24 [LOGIBRIDGE PSI] PSI=0.515 n=100 bins=[0.0, 0.54, 0.0, 0.46]
+12:29:24 [LOGIBRIDGE DRIFT ALERT] PSI=0.515
+12:30:24 [LOGIBRIDGE PSI] PSI=0.487 n=100 bins=[0.0, 0.55, 0.0, 0.45]
+12:30:24 [LOGIBRIDGE DRIFT ALERT] PSI=0.487
+12:31:24 [LOGIBRIDGE PSI] PSI=0.432 n=100 bins=[0.0, 0.57, 0.0, 0.43]
+12:31:24 [LOGIBRIDGE DRIFT ALERT] PSI=0.432
+12:32:24 [LOGIBRIDGE PSI] PSI=0.432 n=100 bins=[0.0, 0.57, 0.0, 0.43]
+12:32:24 [LOGIBRIDGE DRIFT ALERT] PSI=0.432
+12:33:25 [LOGIBRIDGE PSI] PSI=0.432 n=100 bins=[0.0, 0.57, 0.0, 0.43]
+12:33:25 [LOGIBRIDGE DRIFT ALERT] PSI=0.432
+12:34:25 [LOGIBRIDGE PSI] PSI=0.355 n=100 bins=[0.0, 0.6, 0.0, 0.4]
+12:34:25 [LOGIBRIDGE DRIFT ALERT] PSI=0.355
+12:35:25 [LOGIBRIDGE PSI] PSI=0.242 n=100 bins=[0.0, 0.65, 0.0, 0.35]
+12:36:26 [LOGIBRIDGE PSI] PSI=0.131 n=100 bins=[0.0, 0.71, 0.0, 0.29]
+12:37:26 [LOGIBRIDGE PSI] PSI=0.061 n=100 bins=[0.0, 0.76, 0.0, 0.24]
+12:37:26 [LOGIBRIDGE DRIFT RECOVERED] PSI=0.061
+12:38:26 [LOGIBRIDGE PSI] PSI=0.016 n=100 bins=[0.0, 0.81, 0.0, 0.19]
+12:39:26 SIMULATOR END

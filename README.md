@@ -102,7 +102,7 @@ Follow the demo checklist for live evidence and stop the stack with
    python optimisation/benchmark.py
    ```
 
-   The scripts measure all five required metrics and produce `optimisation/results/benchmark_results.csv` and `pareto_chart.png`. Check Class 2 recall >95% before recommending a variant.
+   The scripts measure all five required metrics and produce `optimisation/results/benchmark_results.csv` and `pareto_chart.png`. Check Class 2 recall >95% before recommending a variant. To redraw only the chart from the existing CSV without re-measuring, run `python -m optimisation.benchmark --plot-only`.
 
 6. Build a confidence reference using 300 independently simulated Normal windows, then run inference and monitoring:
 
