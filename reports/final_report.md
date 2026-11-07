@@ -1,4 +1,4 @@
-# GROUP16_LogiEdge_Final
+# GROUP16_LogiEdge
 
 > Measured results from a local end-to-end run on macOS (Apple Silicon) with Python 3.11, TensorFlow 2.15.1, Docker Compose, and Ansible. This simulation does not certify pharmaceutical safety.
 
