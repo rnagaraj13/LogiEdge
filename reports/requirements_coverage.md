@@ -28,4 +28,3 @@ This matrix links each assignment requirement to the corresponding repository ar
 1. Run all scripts end-to-end in your target environment and capture **measured** outputs.
 2. Export the final report to PDF as `GROUPNO_LogiEdge_Final.pdf`.
 3. Record your own demo and verify link accessibility in incognito mode.
-4. Add the instructor as collaborator to the private repository before submission.
