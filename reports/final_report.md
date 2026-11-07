@@ -6,8 +6,8 @@
 |---|---|
 | **Group** | Group 16 |
 | **Members** | R. Ranjith N. (2025ae05379@wilp.bits-pilani.ac.in)<br>P. Pricilla W. (2025ae05321@wilp.bits-pilani.ac.in)<br>G. Guna Anban G. (2025ae05318@wilp.bits-pilani.ac.in) |
-| **Repository** | https://github.com/rnagaraj13/LogiEdge |
-| **Demo video** | FILL_BEFORE_SUBMIT |
+| **Repository** | <https://github.com/rnagaraj13/LogiEdge> |
+| **Demo video** | <https://drive.google.com/file/d/1-eleWS08pblFht3cI-LVhRtAHdsOiGxH/view> |
 
 ## 1 — FreightBridge Deployment Context (target 400–500 words)
 
